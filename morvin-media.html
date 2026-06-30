@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MorVin Media — Creative Content & Production Studio | Surat, India</title>
+<meta name="description" content="MorVin Media is a premium Creative Content & Production Studio based in Surat, India. We craft Commercial Videos, Brand Films, Jewellery Shoots, Fashion Content, and cinematic visuals that build legendary brands.">
+<meta property="og:title" content="MorVin Media — We Build Brands That People Remember">
+<meta property="og:description" content="Premium Creative Content & Production Studio based in Surat. Commercial Videos · Brand Films · Jewellery Shoots · Fashion Content.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MorVin Media — Creative Content & Production Studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--black:#0D0D0D;
+--white:#FFFFFF;
+--gold:#C8A96A;
+--gold-dim:#9a7d4a;
+--gray:#1a1a1a;
+--gray-mid:#2a2a2a;
+--gray-light:#404040;
+--text-muted:#888;
+--text-dim:#555;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+background:#0D0D0D;
+color:#fff;
+font-family:'Inter',sans-serif;
+font-weight:400;
+overflow-x:hidden;
+cursor:none;
+line-height:1.6;
+}
+/* CUSTOM CURSOR */
+#cursor{
+position:fixed;
+width:12px;height:12px;
+background:#C8A96A;
+border-radius:50%;
+pointer-events:none;
+z-index:99999;
+transform:translate(-50%,-50%);
+transition:width .15s,height .15s,background .15s;
+mix-blend-mode:difference;
+}
+#cursor-trail{
+position:fixed;
+width:36px;height:36px;
+border:1px solid rgba(200,169,106,.4);
+border-radius:50%;
+pointer-events:none;
+z-index:99998;
+transform:translate(-50%,-50%);
+transition:all .08s ease;
+}
+body:has(a:hover) #cursor,
+body:has(button:hover) #cursor{width:24px;height:24px}
+/* LOADING SCREEN */
+#loader{
+position:fixed;inset:0;
+background:#0D0D0D;
+z-index:99997;
+display:flex;align-items:center;justify-content:center;
+flex-direction:column;gap:2rem;
+}
+#loader-logo{
+font-size:clamp(2rem,5vw,4rem);
+font-weight:900;
+letter-spacing:-.04em;
+color:#fff;
+}
+#loader-logo span{color:#C8A96A}
+#loader-bar{
+width:200px;height:1px;
+background:#1a1a1a;
+position:relative;overflow:hidden;
+}
+#loader-bar::after{
+content:'';
+position:absolute;inset:0 100% 0 0;
+background:#C8A96A;
+animation:load 1.8s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes load{to{right:0}}
+#loader-num{
+font-size:.75rem;
+letter-spacing:.2em;
+color:#C8A96A;
+font-weight:500;
+}
+/* NAV */
+nav{
+position:fixed;top:0;left:0;right:0;
+z-index:9999;
+padding:1.5rem 4vw;
+display:flex;align-items:center;justify-content:space-between;
+transition:background .4s,padding .4s;
+}
+nav.scrolled{
+background:rgba(13,13,13,.92);
+backdrop-filter:blur(20px);
+padding:1rem 4vw;
+border-bottom:1px solid rgba(200,169,106,.12);
+}
+.nav-logo{
+font-size:1.5rem;
+font-weight:900;
+letter-spacing:-.04em;
+color:#fff;
+text-decoration:none;
+}
+.nav-logo span{color:#C8A96A}
+.nav-links{
+display:flex;gap:2.5rem;align-items:center;
+list-style:none;
+}
+.nav-links a{
+text-decoration:none;
+color:#888;
+font-size:.85rem;
+letter-spacing:.08em;
+text-transform:uppercase;
+font-weight:500;
+transition:color .3s;
+}
+.nav-links a:hover{color:#C8A96A}
+.nav-cta{
+background:#C8A96A;
+color:#0D0D0D !important;
+padding:.6rem 1.5rem;
+border-radius:100px;
+font-weight:700 !important;
+letter-spacing:.04em !important;
+transition:all .3s !important;
+}
+.nav-cta:hover{background:#fff !important;color:#0D0D0D !important;transform:translateY(-2px)}
+/* HERO */
+#hero{
+min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+position:relative;
+overflow:hidden;
+padding:0 4vw;
+}
+.hero-bg{
+position:absolute;inset:0;
+background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,169,106,.06) 0%, transparent 70%);
+}
+.hero-grid{
+position:absolute;inset:0;
+background-image:linear-gradient(rgba(200,169,106,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,106,.03) 1px,transparent 1px);
+background-size:80px 80px;
+}
+.hero-content{
+text-align:center;
+position:relative;z-index:2;
+max-width:1100px;
+}
+.hero-eyebrow{
+display:inline-flex;align-items:center;gap:.75rem;
+font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;
+color:#C8A96A;font-weight:600;
+margin-bottom:2.5rem;
+border:1px solid rgba(200,169,106,.25);
+padding:.5rem 1.5rem;
+border-radius:100px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+content:'';
+width:20px;height:1px;background:#C8A96A;opacity:.6;
+}
+.hero-h1{
+font-size:clamp(3.5rem,9vw,9rem);
+font-weight:900;
+line-height:.95;
+letter-spacing:-.04em;
+margin-bottom:2rem;
+}
+.hero-h1 em{
+font-style:normal;
+color:transparent;
+-webkit-text-stroke:1px rgba(255,255,255,.3);
+}
+.hero-sub{
+font-size:clamp(1rem,2vw,1.25rem);
+color:#888;
+max-width:560px;
+margin:0 auto 3rem;
+line-height:1.7;
+font-weight:300;
+}
+.hero-sub strong{color:#C8A96A;font-weight:600}
+.hero-ctas{
+display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;
+}
+.btn-primary{
+background:#C8A96A;
+color:#0D0D0D;
+padding:1rem 2.5rem;
+border-radius:100px;
+font-weight:700;
+font-size:.95rem;
+letter-spacing:.04em;
+text-decoration:none;
+border:none;cursor:pointer;
+transition:all .35s cubic-bezier(.4,0,.2,1);
+position:relative;overflow:hidden;
+display:inline-flex;align-items:center;gap:.6rem;
+}
+.btn-primary::before{
+content:'';position:absolute;inset:0;
+background:rgba(255,255,255,.15);
+transform:translateX(-100%) skewX(-20deg);
+transition:transform .5s;
+}
+.btn-primary:hover::before{transform:translateX(120%) skewX(-20deg)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(200,169,106,.25)}
+.btn-outline{
+background:transparent;
+color:#fff;
+padding:1rem 2.5rem;
+border-radius:100px;
+font-weight:600;
+font-size:.95rem;
+letter-spacing:.04em;
+text-decoration:none;
+border:1px solid rgba(255,255,255,.2);
+cursor:pointer;
+transition:all .35s;
+display:inline-flex;align-items:center;gap:.6rem;
+}
+.btn-outline:hover{border-color:#C8A96A;color:#C8A96A;transform:translateY(-3px)}
+.hero-scroll{
+position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:.6rem;
+color:#555;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+}
+.hero-scroll-line{
+width:1px;height:50px;
+background:linear-gradient(to bottom,#C8A96A,transparent);
+animation:scrollpulse 2s ease-in-out infinite;
+}
+@keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
+/* MARQUEE */
+.marquee-section{
+padding:2rem 0;
+border-top:1px solid rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.05);
+overflow:hidden;
+background:#0D0D0D;
+}
+.marquee-track{
+display:flex;gap:0;
+animation:marquee 20s linear infinite;
+width:max-content;
+}
+.marquee-item{
+padding:0 3rem;
+font-size:.75rem;
+letter-spacing:.25em;
+text-transform:uppercase;
+color:#333;
+font-weight:600;
+white-space:nowrap;
+display:flex;align-items:center;gap:2rem;
+}
+.marquee-item span{color:#C8A96A;font-size:1rem}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* SECTION BASE */
+section{padding:8rem 4vw}
+.section-eyebrow{
+font-size:.7rem;
+letter-spacing:.25em;
+text-transform:uppercase;
+color:#C8A96A;
+font-weight:600;
+margin-bottom:1rem;
+display:flex;align-items:center;gap:1rem;
+}
+.section-eyebrow::before{
+content:'';
+width:30px;height:1px;background:#C8A96A;
+}
+.section-title{
+font-size:clamp(2.5rem,5vw,5rem);
+font-weight:900;
+letter-spacing:-.04em;
+line-height:1;
+margin-bottom:1.5rem;
+}
+.section-sub{
+font-size:1.1rem;
+color:#666;
+max-width:560px;
+line-height:1.7;
+}
+/* ABOUT */
+#about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6rem;
+align-items:center;
+}
+.about-visual{
+position:relative;
+}
+.about-card{
+background:#111;
+border:1px solid rgba(255,255,255,.06);
+border-radius:24px;
+padding:2.5rem;
+position:relative;
+overflow:hidden;
+}
+.about-card::before{
+content:'';
+position:absolute;
+top:-1px;left:-1px;right:-1px;
+height:1px;
+background:linear-gradient(90deg,transparent,#C8A96A,transparent);
+}
+.about-stat-grid{
+display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;
+}
+.about-stat{
+background:#1a1a1a;
+border-radius:16px;
+padding:1.5rem;
+border:1px solid rgba(255,255,255,.04);
+}
+.about-stat-num{
+font-size:2.5rem;
+font-weight:900;
+letter-spacing:-.04em;
+color:#C8A96A;
+line-height:1;
+}
+.about-stat-label{
+font-size:.75rem;
+color:#555;
+letter-spacing:.1em;
+text-transform:uppercase;
+margin-top:.3rem;
+}
+.about-quote{
+font-size:1.4rem;
+font-weight:700;
+line-height:1.4;
+margin:2.5rem 0;
+color:#fff;
+}
+.about-quote em{
+font-style:italic;
+color:#C8A96A;
+}
+/* SERVICES */
+#services{background:#0D0D0D}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:1.5px;
+margin-top:5rem;
+border:1.5px solid rgba(255,255,255,.05);
+border-radius:24px;
+overflow:hidden;
+}
+.service-card{
+background:#0D0D0D;
+padding:2.5rem;
+position:relative;
+overflow:hidden;
+border:1.5px solid rgba(255,255,255,.05);
+transition:all .5s cubic-bezier(.4,0,.2,1);
+cursor:pointer;
+}
+.service-card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(200,169,106,.06),transparent);
+opacity:0;
+transition:opacity .4s;
+}
+.service-card:hover{background:#111;transform:translateY(-4px);z-index:2}
+.service-card:hover::before{opacity:1}
+.service-icon{
+font-size:2rem;
+margin-bottom:1.5rem;
+filter:grayscale(1);
+transition:filter .3s;
+}
+.service-card:hover .service-icon{filter:grayscale(0)}
+.service-name{
+font-size:1.2rem;
+font-weight:700;
+margin-bottom:.75rem;
+letter-spacing:-.02em;
+}
+.service-desc{
+font-size:.875rem;
+color:#555;
+line-height:1.6;
+}
+.service-arrow{
+position:absolute;
+bottom:2rem;right:2rem;
+font-size:1.2rem;
+color:#C8A96A;
+opacity:0;
+transform:translateX(-8px);
+transition:all .3s;
+}
+.service-card:hover .service-arrow{opacity:1;transform:translateX(0)}
+/* PROJECTS */
+#projects{background:#080808}
+.projects-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1.5rem;
+margin-top:5rem;
+}
+.project-card{
+background:#111;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+.project-card:first-child{
+grid-row:span 2;
+}
+.project-thumb{
+aspect-ratio:16/9;
+background:linear-gradient(135deg,#1a1a1a,#222);
+position:relative;
+overflow:hidden;
+display:flex;align-items:center;justify-content:center;
+}
+.project-card:first-child .project-thumb{
+aspect-ratio:unset;
+height:100%;
+min-height:400px;
+}
+.project-thumb-inner{
+width:100%;height:100%;
+display:flex;align-items:center;justify-content:center;
+font-size:3rem;
+opacity:.15;
+transition:transform .8s cubic-bezier(.4,0,.2,1),opacity .5s;
+}
+.project-card:hover .project-thumb-inner{
+opacity:.3;transform:scale(1.05);
+}
+.project-overlay{
+position:absolute;inset:0;
+background:linear-gradient(to top,rgba(13,13,13,.95),transparent 60%);
+opacity:0;
+transition:opacity .4s;
+}
+.project-card:hover .project-overlay{opacity:1}
+.project-info{
+position:absolute;bottom:0;left:0;right:0;
+padding:2rem;
+transform:translateY(8px);
+transition:transform .4s;
+}
+.project-card:hover .project-info{transform:translateY(0)}
+.project-tag{
+font-size:.65rem;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#C8A96A;
+font-weight:600;
+margin-bottom:.5rem;
+}
+.project-title{
+font-size:1.3rem;
+font-weight:700;
+letter-spacing:-.02em;
+}
+/* WHY */
+#why{
+background:#0D0D0D;
+}
+.why-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
+margin-top:5rem;
+}
+.why-card{
+padding:2.5rem;
+background:#0f0f0f;
+border:1px solid rgba(255,255,255,.05);
+border-radius:20px;
+position:relative;
+overflow:hidden;
+transition:border-color .3s,transform .3s;
+}
+.why-card:hover{
+border-color:rgba(200,169,106,.2);
+transform:translateY(-6px);
+}
+.why-num{
+font-size:5rem;
+font-weight:900;
+letter-spacing:-.06em;
+color:rgba(200,169,106,.08);
+line-height:1;
+position:absolute;
+top:1.5rem;right:1.5rem;
+}
+.why-title{
+font-size:1.25rem;
+font-weight:700;
+margin-bottom:.75rem;
+letter-spacing:-.02em;
+}
+.why-desc{
+font-size:.9rem;
+color:#555;
+line-height:1.7;
+}
+/* PROCESS */
+#process{background:#080808}
+.process-steps{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:0;
+margin-top:5rem;
+position:relative;
+}
+.process-steps::before{
+content:'';
+position:absolute;
+top:2rem;left:0;right:0;
+height:1px;
+background:linear-gradient(90deg,transparent,#C8A96A,transparent);
+opacity:.2;
+}
+.process-step{
+padding:0 1rem;
+text-align:center;
+position:relative;
+padding-top:5rem;
+}
+.process-dot{
+position:absolute;
+top:0;left:50%;transform:translateX(-50%);
+width:4rem;height:4rem;
+background:#0D0D0D;
+border:1px solid rgba(200,169,106,.3);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:1.3rem;
+transition:all .4s;
+}
+.process-step:hover .process-dot{
+background:#C8A96A;
+border-color:#C8A96A;
+box-shadow:0 0 30px rgba(200,169,106,.3);
+}
+.process-num{
+font-size:.6rem;
+letter-spacing:.15em;
+color:#C8A96A;
+font-weight:700;
+margin-bottom:.5rem;
+}
+.process-name{
+font-size:1rem;
+font-weight:700;
+margin-bottom:.4rem;
+}
+.process-desc{
+font-size:.75rem;
+color:#444;
+}
+/* TESTIMONIALS */
+#testimonials{background:#0D0D0D}
+.testimonials-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1.5rem;
+margin-top:5rem;
+}
+.testi-card{
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.07);
+border-radius:20px;
+padding:2rem;
+position:relative;
+transition:border-color .3s,transform .3s;
+}
+.testi-card:hover{
+border-color:rgba(200,169,106,.2);
+transform:translateY(-4px);
+}
+.testi-quote{
+font-size:3rem;
+color:#C8A96A;
+opacity:.3;
+line-height:1;
+margin-bottom:1rem;
+font-family:Georgia,serif;
+}
+.testi-text{
+font-size:.95rem;
+line-height:1.7;
+color:#999;
+margin-bottom:1.5rem;
+font-style:italic;
+}
+.testi-stars{
+color:#C8A96A;
+font-size:.9rem;
+margin-bottom:1.2rem;
+letter-spacing:.1em;
+}
+.testi-author{
+display:flex;align-items:center;gap:.75rem;
+}
+.testi-avatar{
+width:44px;height:44px;
+border-radius:50%;
+background:linear-gradient(135deg,#C8A96A,#9a7d4a);
+display:flex;align-items:center;justify-content:center;
+font-weight:700;font-size:.85rem;color:#0D0D0D;
+flex-shrink:0;
+}
+.testi-name{font-weight:700;font-size:.9rem}
+.testi-role{font-size:.75rem;color:#555}
+/* STATS */
+#stats{
+background:linear-gradient(135deg,#0D0D0D 0%,#111 50%,#0D0D0D 100%);
+padding:6rem 4vw;
+border-top:1px solid rgba(200,169,106,.08);
+border-bottom:1px solid rgba(200,169,106,.08);
+}
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:0;
+}
+.stat-item{
+text-align:center;
+padding:3rem 2rem;
+border-right:1px solid rgba(255,255,255,.05);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+font-size:clamp(3rem,6vw,5rem);
+font-weight:900;
+letter-spacing:-.05em;
+line-height:1;
+color:#fff;
+}
+.stat-num span{color:#C8A96A}
+.stat-label{
+font-size:.75rem;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#444;
+margin-top:.75rem;
+font-weight:500;
+}
+/* FAQ */
+#faq{background:#080808}
+.faq-list{
+max-width:760px;
+margin:4rem auto 0;
+}
+.faq-item{
+border-bottom:1px solid rgba(255,255,255,.05);
+overflow:hidden;
+}
+.faq-q{
+padding:1.75rem 0;
+display:flex;align-items:center;justify-content:space-between;
+cursor:pointer;
+font-size:1.05rem;
+font-weight:600;
+letter-spacing:-.01em;
+transition:color .3s;
+gap:2rem;
+}
+.faq-q:hover{color:#C8A96A}
+.faq-icon{
+width:24px;height:24px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+flex-shrink:0;
+font-size:.9rem;
+color:#C8A96A;
+transition:transform .4s,background .3s;
+}
+.faq-item.open .faq-icon{
+background:#C8A96A;
+color:#0D0D0D;
+transform:rotate(45deg);
+}
+.faq-a{
+height:0;overflow:hidden;
+transition:height .4s cubic-bezier(.4,0,.2,1);
+}
+.faq-a-inner{
+padding:0 0 1.5rem;
+color:#555;
+line-height:1.7;
+font-size:.95rem;
+}
+/* CONTACT */
+#contact{background:#0D0D0D}
+.contact-inner{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6rem;
+align-items:start;
+}
+.contact-form{
+background:#0f0f0f;
+border:1px solid rgba(255,255,255,.06);
+border-radius:24px;
+padding:3rem;
+position:relative;
+overflow:hidden;
+}
+.contact-form::before{
+content:'';
+position:absolute;
+top:-1px;left:0;right:0;
+height:2px;
+background:linear-gradient(90deg,transparent,#C8A96A,transparent);
+}
+.form-group{margin-bottom:1.5rem}
+.form-label{
+font-size:.7rem;
+letter-spacing:.15em;
+text-transform:uppercase;
+color:#555;
+font-weight:600;
+margin-bottom:.6rem;
+display:block;
+}
+.form-input{
+width:100%;
+background:#1a1a1a;
+border:1px solid rgba(255,255,255,.06);
+border-radius:10px;
+padding:1rem 1.25rem;
+color:#fff;
+font-size:.95rem;
+font-family:inherit;
+transition:border-color .3s;
+outline:none;
+}
+.form-input::placeholder{color:#333}
+.form-input:focus{border-color:rgba(200,169,106,.4)}
+textarea.form-input{resize:none;height:140px}
+.contact-info{
+padding-top:2rem;
+}
+.contact-tagline{
+font-size:clamp(1.5rem,3vw,2.5rem);
+font-weight:800;
+letter-spacing:-.04em;
+line-height:1.15;
+margin-bottom:2rem;
+}
+.contact-tagline em{
+font-style:italic;
+color:#C8A96A;
+}
+.contact-detail{
+display:flex;align-items:flex-start;gap:1rem;
+margin-bottom:1.75rem;
+}
+.contact-detail-icon{
+width:44px;height:44px;
+background:#1a1a1a;
+border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+flex-shrink:0;
+font-size:1.2rem;
+color:#C8A96A;
+border:1px solid rgba(255,255,255,.05);
+}
+.contact-detail-label{font-size:.7rem;color:#444;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.contact-detail-val{font-size:1rem;font-weight:600;margin-top:.2rem}
+.social-row{
+display:flex;gap:1rem;margin-top:3rem;
+}
+.social-btn{
+width:48px;height:48px;
+background:#1a1a1a;
+border:1px solid rgba(255,255,255,.05);
+border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+font-size:1.1rem;
+color:#888;
+text-decoration:none;
+transition:all .3s;
+cursor:pointer;
+}
+.social-btn:hover{background:#C8A96A;color:#0D0D0D;border-color:#C8A96A;transform:translateY(-4px)}
+/* FOOTER */
+footer{
+background:#080808;
+border-top:1px solid rgba(255,255,255,.05);
+padding:4rem 4vw 2rem;
+}
+.footer-top{
+display:flex;align-items:flex-start;justify-content:space-between;
+padding-bottom:3rem;
+border-bottom:1px solid rgba(255,255,255,.05);
+flex-wrap:wrap;
+gap:3rem;
+}
+.footer-brand{
+max-width:300px;
+}
+.footer-logo{
+font-size:1.75rem;
+font-weight:900;
+letter-spacing:-.04em;
+margin-bottom:1rem;
+}
+.footer-logo span{color:#C8A96A}
+.footer-tagline{
+font-size:.85rem;
+color:#444;
+line-height:1.6;
+}
+.footer-links h4{
+font-size:.7rem;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#C8A96A;
+font-weight:600;
+margin-bottom:1.25rem;
+}
+.footer-links ul{
+list-style:none;
+display:flex;
+flex-direction:column;
+gap:.6rem;
+}
+.footer-links a{
+text-decoration:none;
+color:#444;
+font-size:.875rem;
+transition:color .3s;
+}
+.footer-links a:hover{color:#fff}
+.footer-bottom{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-top:2rem;
+flex-wrap:wrap;
+gap:1rem;
+}
+.footer-copy{
+font-size:.75rem;
+color:#333;
+}
+.footer-copy span{color:#C8A96A}
+/* FLOATING WHATSAPP */
+#wa-float{
+position:fixed;
+bottom:2rem;right:2rem;
+z-index:9990;
+width:56px;height:56px;
+background:#25D366;
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:1.5rem;
+cursor:pointer;
+box-shadow:0 8px 24px rgba(37,211,102,.3);
+transition:transform .3s;
+text-decoration:none;
+color:#fff;
+}
+#wa-float:hover{transform:scale(1.1)}
+/* SCROLL REVEAL CLASSES */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s,transform .8s}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s,transform .8s}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+/* BEFORE/AFTER SLIDER */
+.ba-section{background:#080808;padding:8rem 4vw}
+.ba-wrap{
+position:relative;
+max-width:900px;
+margin:4rem auto 0;
+border-radius:20px;overflow:hidden;
+user-select:none;
+border:1px solid rgba(255,255,255,.05);
+}
+.ba-after,.ba-before{
+width:100%;
+aspect-ratio:16/9;
+display:flex;align-items:center;justify-content:center;
+font-size:1.25rem;
+font-weight:700;
+letter-spacing:.08em;
+text-transform:uppercase;
+position:absolute;inset:0;
+}
+.ba-before{
+background:linear-gradient(135deg,#1a1a1a,#0f0f0f);
+color:#333;
+z-index:1;
+}
+.ba-after{
+background:linear-gradient(135deg,#1f1810,#2a200e);
+color:#C8A96A;
+z-index:2;
+clip-path:inset(0 50% 0 0);
+transition:clip-path .0s;
+}
+.ba-handle{
+position:absolute;top:0;bottom:0;
+left:50%;
+width:2px;
+background:#C8A96A;
+z-index:3;
+cursor:ew-resize;
+transform:translateX(-50%);
+}
+.ba-handle::before,.ba-handle::after{
+content:'';
+position:absolute;
+left:50%;transform:translateX(-50%);
+width:40px;height:40px;
+background:#C8A96A;
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+}
+.ba-handle::before{top:50%;transform:translate(-50%,-50%)}
+.ba-handle-arrows{
+position:absolute;
+left:50%;top:50%;
+transform:translate(-50%,-50%);
+z-index:4;
+pointer-events:none;
+color:#0D0D0D;
+font-weight:900;
+font-size:.85rem;
+letter-spacing:.05em;
+}
+.ba-wrapper{position:relative;aspect-ratio:16/9}
+.ba-label{
+position:absolute;top:1rem;z-index:5;
+font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+padding:.4rem 1rem;border-radius:100px;
+}
+.ba-label.before{left:1rem;background:#1a1a1a;color:#555}
+.ba-label.after{right:1rem;background:rgba(200,169,106,.2);color:#C8A96A}
+/* AWARDS */
+#awards{background:#0D0D0D;padding:6rem 4vw}
+.awards-grid{
+display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:4rem;
+}
+.award-badge{
+background:#111;
+border:1px solid rgba(255,255,255,.06);
+border-radius:16px;
+padding:1.5rem 2rem;
+display:flex;align-items:center;gap:1rem;
+flex:1;min-width:220px;
+transition:border-color .3s;
+}
+.award-badge:hover{border-color:rgba(200,169,106,.2)}
+.award-icon{font-size:2rem}
+.award-name{font-weight:700;font-size:.95rem;margin-bottom:.2rem}
+.award-year{font-size:.75rem;color:#444}
+/* MOBILE HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:#fff;transition:all .3s}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+#about{grid-template-columns:1fr}
+.why-grid{grid-template-columns:1fr}
+.process-steps{grid-template-columns:repeat(2,1fr)}
+.projects-grid{grid-template-columns:1fr}
+.project-card:first-child{grid-row:auto}
+.testimonials-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.contact-inner{grid-template-columns:1fr}
+.footer-top{flex-direction:column}
+.hero-h1{font-size:clamp(2.5rem,12vw,5rem)}
+section{padding:5rem 4vw}
+}
+/* TAGLINE SECTION */
+.tagline-section{
+padding:10rem 4vw;
+text-align:center;
+background:linear-gradient(135deg,#0D0D0D 0%,#110e08 50%,#0D0D0D 100%);
+border-top:1px solid rgba(200,169,106,.06);
+border-bottom:1px solid rgba(200,169,106,.06);
+}
+.tagline-words{
+display:flex;flex-direction:column;gap:.5rem;
+align-items:center;
+}
+.tagline-word{
+font-size:clamp(4rem,12vw,11rem);
+font-weight:900;
+letter-spacing:-.06em;
+line-height:.9;
+color:transparent;
+-webkit-text-stroke:1px rgba(255,255,255,.12);
+transition:all .6s;
+cursor:default;
+}
+.tagline-word:hover{
+-webkit-text-stroke:1px transparent;
+color:#C8A96A;
+transform:translateX(12px);
+}
+.tagline-period{color:#C8A96A;-webkit-text-stroke:0}
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div id="loader-logo">Mor<span>Vin</span> Media</div>
+  <div id="loader-bar"></div>
+  <div id="loader-num" id="loader-num">Loading...</div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/91XXXXXXXXXX" id="wa-float" aria-label="Contact on WhatsApp" target="_blank" rel="noopener">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Mor<span>Vin</span> Media</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-reveal>Surat's Premier Production Studio</div>
+    <h1 class="hero-h1" data-reveal>
+      We Build <em>Brands</em><br>That People<br>Remember.
+    </h1>
+    <p class="hero-sub" data-reveal>
+      From cinematic brand films to product photography —<br>
+      <strong>MorVin Media</strong> turns your vision into content that converts.
+    </p>
+    <div class="hero-ctas" data-reveal>
+      <a href="#projects" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Showreel
+      </a>
+      <a href="#contact" class="btn-outline">Get Started →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">Commercial Videos <span>·</span></div>
+    <div class="marquee-item">Brand Films <span>·</span></div>
+    <div class="marquee-item">Product Shoots <span>·</span></div>
+    <div class="marquee-item">Fashion Shoots <span>·</span></div>
+    <div class="marquee-item">Jewellery Photography <span>·</span></div>
+    <div class="marquee-item">Real Estate Videos <span>·</span></div>
+    <div class="marquee-item">Restaurant Content <span>·</span></div>
+    <div class="marquee-item">Event Coverage <span>·</span></div>
+    <div class="marquee-item">Cinematic Reels <span>·</span></div>
+    <div class="marquee-item">Social Media Content <span>·</span></div>
+    <div class="marquee-item">Commercial Videos <span>·</span></div>
+    <div class="marquee-item">Brand Films <span>·</span></div>
+    <div class="marquee-item">Product Shoots <span>·</span></div>
+    <div class="marquee-item">Fashion Shoots <span>·</span></div>
+    <div class="marquee-item">Jewellery Photography <span>·</span></div>
+    <div class="marquee-item">Real Estate Videos <span>·</span></div>
+    <div class="marquee-item">Restaurant Content <span>·</span></div>
+    <div class="marquee-item">Event Coverage <span>·</span></div>
+    <div class="marquee-item">Cinematic Reels <span>·</span></div>
+    <div class="marquee-item">Social Media Content <span>·</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal-left">
+    <div class="about-card">
+      <div class="section-eyebrow">Our Story</div>
+      <div class="about-quote">
+        "We don't just create content.<br>We <em>build brands.</em>"
+      </div>
+      <p style="color:#555;font-size:.95rem;line-height:1.8">
+        MorVin Media was born from the belief that every brand has a story worth telling brilliantly. Based in Surat, India, we fuse cinematic craft with strategic thinking to produce content that doesn't just look good — it performs.
+      </p>
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <div class="about-stat-num" data-count="200">0+</div>
+          <div class="about-stat-label">Projects Delivered</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num" data-count="80">0+</div>
+          <div class="about-stat-label">Happy Clients</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num" data-count="5">0+</div>
+          <div class="about-stat-label">Years of Excellence</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num" data-count="3">0+</div>
+          <div class="about-stat-label">Cities Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="section-eyebrow">About MorVin</div>
+    <h2 class="section-title">Crafted for<br>the Ambitious.</h2>
+    <p class="section-sub" style="margin-bottom:2rem">
+      We are storytellers, strategists, and visual artists — united by one obsession: making your brand impossible to ignore.
+    </p>
+    <p style="color:#555;font-size:.95rem;line-height:1.8;margin-bottom:2rem">
+      Every frame we shoot, every edit we make, every reel we craft is driven by a single question: <em style="color:#C8A96A">does this make the brand unforgettable?</em> If the answer is anything but yes, we start over.
+    </p>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap">
+      <div>
+        <div style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#C8A96A;font-weight:600;margin-bottom:.4rem">Our Mission</div>
+        <p style="font-size:.9rem;color:#666;max-width:220px;line-height:1.6">To create content so powerful it becomes the brand.</p>
+      </div>
+      <div>
+        <div style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#C8A96A;font-weight:600;margin-bottom:.4rem">Our Vision</div>
+        <p style="font-size:.9rem;color:#666;max-width:220px;line-height:1.6">To be South Asia's most respected creative production studio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAGLINE SECTION -->
+<div class="tagline-section" aria-label="Create. Content. Grow.">
+  <div class="tagline-words">
+    <div class="tagline-word reveal">Create<span class="tagline-period">.</span></div>
+    <div class="tagline-word reveal" style="transition-delay:.1s">Content<span class="tagline-period">.</span></div>
+    <div class="tagline-word reveal" style="transition-delay:.2s">Grow<span class="tagline-period">.</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center">What We Do</div>
+    <h2 class="section-title reveal">Every Frame,<br>A Statement.</h2>
+    <p class="section-sub reveal" style="margin:0 auto">We cover every dimension of visual content — from a single product shot to a full brand identity film.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <div class="service-name">Commercial Videos</div>
+      <p class="service-desc">High-impact videos designed to convert viewers into customers. Scripted, directed, and edited for maximum impact.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎥</div>
+      <div class="service-name">Brand Films</div>
+      <p class="service-desc">Cinematic narratives that define who you are, what you stand for, and why the world should care.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Jewellery Shoots</div>
+      <p class="service-desc">Studio-grade jewellery photography that captures every glint, every facet, every story in stunning detail.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👗</div>
+      <div class="service-name">Fashion Shoots</div>
+      <p class="service-desc">Editorial and commercial fashion photography crafted to make your collection stop every scroll.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <div class="service-name">Real Estate Videos</div>
+      <p class="service-desc">Aerial cinematography and walk-through edits that sell properties before the open house.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🍽️</div>
+      <div class="service-name">Restaurant Content</div>
+      <p class="service-desc">Food videos and photography that make every dish irresistible — and drive reservations.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <div class="service-name">Product Shoots</div>
+      <p class="service-desc">Clean, compelling product visuals for e-commerce, ads, and campaigns that drive real sales.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Professional Editing</div>
+      <p class="service-desc">Colour-graded, motion-designed, sound-mixed edits that elevate raw footage into premium content.</p>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:#080808">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:0">
+    <div>
+      <div class="section-eyebrow">Featured Work</div>
+      <h2 class="section-title reveal">Work That<br>Speaks First.</h2>
+    </div>
+    <a href="#contact" class="btn-outline reveal" style="margin-bottom:.5rem">See All Work →</a>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal-left">
+      <div class="project-thumb">
+        <div class="project-thumb-inner">💎</div>
+        <div class="project-overlay"></div>
+        <div class="project-info" style="opacity:0;transition:opacity .4s">
+          <div class="project-tag">Jewellery · Product</div>
+          <div class="project-title">Luminary Fine Jewels — Brand Campaign</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#0f1a0f,#1a2e1a)">
+        <div class="project-thumb-inner">🍽️</div>
+        <div class="project-overlay"></div>
+        <div class="project-info" style="opacity:0;transition:opacity .4s">
+          <div class="project-tag">Restaurant · Social</div>
+          <div class="project-title">Aromas Kitchen — Menu Relaunch</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#0f0a1a,#1a1028)">
+        <div class="project-thumb-inner">👗</div>
+        <div class="project-overlay"></div>
+        <div class="project-info" style="opacity:0;transition:opacity .4s">
+          <div class="project-tag">Fashion · Editorial</div>
+          <div class="project-title">Regal Wear — SS Collection</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#1a0f0f,#2e1a1a)">
+        <div class="project-thumb-inner">🏠</div>
+        <div class="project-overlay"></div>
+        <div class="project-info" style="opacity:0;transition:opacity .4s">
+          <div class="project-tag">Real Estate · Aerial</div>
+          <div class="project-title">Skyline Properties — Launch Film</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#0a1a18,#112b27)">
+        <div class="project-thumb-inner">🎬</div>
+        <div class="project-overlay"></div>
+        <div class="project-info" style="opacity:0;transition:opacity .4s">
+          <div class="project-tag">Brand Film · Commercial</div>
+          <div class="project-title">Meridian Corp — Brand Story</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;flex-wrap:wrap">
+    <div>
+      <div class="section-eyebrow">Why MorVin</div>
+      <h2 class="section-title reveal">Not Just Execution.<br><em style="font-style:italic;color:#C8A96A">Vision.</em></h2>
+    </div>
+    <p class="section-sub reveal" style="padding-bottom:.5rem">Five reasons brands across Gujarat choose MorVin Media when they want content that genuinely moves the needle.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01</div>
+      <div style="font-size:2rem;margin-bottom:1rem">🎨</div>
+      <div class="why-title">Creative Precision</div>
+      <p class="why-desc">We approach every project like it's our own brand. Every colour grade, every cut, every composition is deliberate.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.1s">
+      <div class="why-num">02</div>
+      <div style="font-size:2rem;margin-bottom:1rem">🧠</div>
+      <div class="why-title">Strategy-First</div>
+      <p class="why-desc">Beautiful content that doesn't perform is decoration. We build with your business goals baked into every decision.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.2s">
+      <div class="why-num">03</div>
+      <div style="font-size:2rem;margin-bottom:1rem">📖</div>
+      <div class="why-title">Master Storytellers</div>
+      <p class="why-desc">Every brand has a story. We find the emotional core and shape it into visuals that create genuine connection.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.3s">
+      <div class="why-num">04</div>
+      <div style="font-size:2rem;margin-bottom:1rem">⚡</div>
+      <div class="why-title">Rapid Turnaround</div>
+      <p class="why-desc">Premium quality at the pace modern brands demand. Our streamlined workflow never compromises on craft.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.4s">
+      <div class="why-num">05</div>
+      <div style="font-size:2rem;margin-bottom:1rem">🏆</div>
+      <div class="why-title">Proven Results</div>
+      <p class="why-desc">Our clients see measurable lifts in engagement, reach, and revenue. Content that looks great and delivers ROI.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.5s;border-color:rgba(200,169,106,.15)">
+      <div class="why-num">06</div>
+      <div style="font-size:2rem;margin-bottom:1rem">🤝</div>
+      <div class="why-title">True Partnership</div>
+      <p class="why-desc">We don't just deliver files and disappear. We become a long-term creative partner invested in your success.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<div class="ba-section">
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center">Our Transform</div>
+    <h2 class="section-title reveal">Raw to<br>Remarkable.</h2>
+    <p class="section-sub reveal" style="margin:0 auto">Drag to compare how MorVin's editing transforms raw footage into cinematic gold.</p>
+  </div>
+  <div class="ba-wrap reveal">
+    <div class="ba-wrapper">
+      <div class="ba-before">RAW FOOTAGE</div>
+      <div class="ba-after" id="baAfter">MORVIN GRADED</div>
+      <div class="ba-handle" id="baHandle">
+        <div class="ba-handle-arrows" id="baArrows">⟨ ⟩</div>
+      </div>
+      <div class="ba-label before">Before</div>
+      <div class="ba-label after">After</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center">How We Work</div>
+    <h2 class="section-title reveal">Six Steps to<br>Unforgettable.</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="process-dot">🔍</div>
+      <div class="process-num">01</div>
+      <div class="process-name">Discover</div>
+      <p class="process-desc">Deep dive into your brand, goals, and audience.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay:.1s">
+      <div class="process-dot">📋</div>
+      <div class="process-num">02</div>
+      <div class="process-name">Plan</div>
+      <p class="process-desc">Scripts, storyboards, shot lists, creative direction.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay:.2s">
+      <div class="process-dot">🎬</div>
+      <div class="process-num">03</div>
+      <div class="process-name">Shoot</div>
+      <p class="process-desc">High-production execution with precision and craft.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay:.3s">
+      <div class="process-dot">✂️</div>
+      <div class="process-num">04</div>
+      <div class="process-name">Edit</div>
+      <p class="process-desc">Grade, cut, sound-design, motion graphics — the magic.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay:.4s">
+      <div class="process-dot">🚀</div>
+      <div class="process-num">05</div>
+      <div class="process-name">Deliver</div>
+      <p class="process-desc">All formats, platforms, and specs. On time.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay:.5s">
+      <div class="process-dot">📈</div>
+      <div class="process-num">06</div>
+      <div class="process-name">Grow</div>
+      <p class="process-desc">Track performance and iterate to compound results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center">Client Stories</div>
+    <h2 class="section-title reveal">Words from<br>Those Who Know.</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">MorVin completely transformed how our jewellery brand looks online. The product shoots were absolutely world-class — our conversion rate went up 40% after the campaign.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">RJ</div>
+        <div>
+          <div class="testi-name">Rajesh Jain</div>
+          <div class="testi-role">Founder, Luminary Jewels, Surat</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:.1s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The brand film MorVin made for us still gives me chills. They understood our story better than we did and translated it into something cinematic. Best investment we ever made.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">PS</div>
+        <div>
+          <div class="testi-name">Priya Shah</div>
+          <div class="testi-role">CEO, Aromas Restaurant Group</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:.2s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">We launched three properties with MorVin's real estate videos. All three sold within two weeks of going live. That's not a coincidence — it's what premium content does.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AV</div>
+        <div>
+          <div class="testi-name">Amit Verma</div>
+          <div class="testi-role">MD, Skyline Properties</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num"><span class="counter" data-target="200">0</span>+</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:.1s">
+      <div class="stat-num"><span class="counter" data-target="80">0</span>+</div>
+      <div class="stat-label">Brands Transformed</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:.2s">
+      <div class="stat-num"><span class="counter" data-target="1200">0</span>+</div>
+      <div class="stat-label">Hours Edited</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:.3s">
+      <div class="stat-num"><span class="counter" data-target="500">0</span>+</div>
+      <div class="stat-label">Cups of Coffee</div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-eyebrow">Recognition</div>
+  <h2 class="section-title reveal">Craftsmanship<br>Recognized.</h2>
+  <div class="awards-grid">
+    <div class="award-badge reveal">
+      <div class="award-icon">🏆</div>
+      <div>
+        <div class="award-name">Best Production Studio</div>
+        <div class="award-year">Gujarat Creative Awards · 2024</div>
+      </div>
+    </div>
+    <div class="award-badge reveal" style="transition-delay:.1s">
+      <div class="award-icon">🎖️</div>
+      <div>
+        <div class="award-name">Excellence in Brand Films</div>
+        <div class="award-year">India Content Summit · 2023</div>
+      </div>
+    </div>
+    <div class="award-badge reveal" style="transition-delay:.2s">
+      <div class="award-icon">⭐</div>
+      <div>
+        <div class="award-name">Top 10 Creative Studios</div>
+        <div class="award-year">Surat Business Awards · 2024</div>
+      </div>
+    </div>
+    <div class="award-badge reveal" style="transition-delay:.3s">
+      <div class="award-icon">🎬</div>
+      <div>
+        <div class="award-name">Best Jewellery Campaign</div>
+        <div class="award-year">Fashion Film Festival · 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#080808">
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center">Common Questions</div>
+    <h2 class="section-title reveal">Everything<br>You Need to Know.</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        How long does a typical project take?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Timelines vary by scope. A product shoot can be turned around in 3–5 days. A full brand film typically takes 2–4 weeks from briefing to final delivery. We always agree on timelines upfront and stick to them.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        Do you work with small businesses or startups?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. Some of our best work has been with ambitious early-stage brands. Premium production isn't just for big companies — it's how small brands compete with the big ones. We tailor our packages to suit different budgets without compromising on quality.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        What cities do you operate in?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Our studio is based in Surat, Gujarat. We regularly shoot across Gujarat and Maharashtra, and we're available for national projects. Travel and logistics can be arranged for the right project — get in touch to discuss.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        What do I need to prepare before a shoot?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Very little — that's the point. We handle all pre-production including scripting, storyboarding, mood boards, and location scouting. You bring your products/talent and trust the process. We brief you thoroughly so nothing is left to chance on the day.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        Can I see examples of your work before committing?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Of course. We're proud of our portfolio. During your initial consultation we'll walk you through case studies and showreel content relevant to your industry. We believe the work speaks for itself.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        How do we get started?
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Fill in our contact form below, send us a WhatsApp, or email us directly. We'll book a free 30-minute discovery call to understand your needs and share how we can help. There's no pressure — just a conversation.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal-left">
+      <div class="section-eyebrow">Let's Create</div>
+      <div class="contact-tagline">
+        Ready to make<br>something <em>extraordinary?</em>
+      </div>
+      <p style="color:#555;font-size:.95rem;line-height:1.7;margin-bottom:2.5rem">
+        Drop us a message, send a WhatsApp, or walk into our studio in Surat. We'd love to hear what you're building and how we can make it unforgettable.
+      </p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-val">Surat, Gujarat, India</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-val">hello@morvinmedia.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div>
+          <div class="contact-detail-label">WhatsApp</div>
+          <div class="contact-detail-val">+91 XXXXX XXXXX</div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a class="social-btn" href="#" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="social-btn" href="#" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a class="social-btn" href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="social-btn" href="https://wa.me/91XXXXXXXXXX" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form reveal-right">
+      <h3 style="font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin-bottom:2rem">Start a Project</h3>
+      <div class="form-group">
+        <label class="form-label" for="f-name">Your Name</label>
+        <input class="form-input" type="text" id="f-name" placeholder="Rahul Sharma" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-email">Email Address</label>
+        <input class="form-input" type="email" id="f-email" placeholder="rahul@yourbrand.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-service">Service You Need</label>
+        <select class="form-input" id="f-service" style="cursor:pointer">
+          <option value="" style="background:#1a1a1a">Select a service...</option>
+          <option style="background:#1a1a1a">Commercial Video</option>
+          <option style="background:#1a1a1a">Brand Film</option>
+          <option style="background:#1a1a1a">Product Shoot</option>
+          <option style="background:#1a1a1a">Fashion Shoot</option>
+          <option style="background:#1a1a1a">Jewellery Shoot</option>
+          <option style="background:#1a1a1a">Real Estate Video</option>
+          <option style="background:#1a1a1a">Restaurant Content</option>
+          <option style="background:#1a1a1a">Event Coverage</option>
+          <option style="background:#1a1a1a">Video Editing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-msg">Tell Us About Your Project</label>
+        <textarea class="form-input" id="f-msg" placeholder="We're launching a new jewellery collection and need a campaign shoot..."></textarea>
+      </div>
+      <button class="btn-primary" id="contact-submit" style="width:100%;justify-content:center" type="button">
+        Send Message
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+      <p id="form-success" style="display:none;text-align:center;color:#C8A96A;font-size:.875rem;margin-top:1rem">✓ Message sent! We'll be in touch within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Mor<span>Vin</span> Media</div>
+      <p class="footer-tagline">Creative Content & Production Studio based in Surat, India. We build brands that people remember.</p>
+      <p style="font-size:.7rem;color:#C8A96A;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:1.5rem">Create. Content. Grow.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Commercial Videos</a></li>
+        <li><a href="#">Brand Films</a></li>
+        <li><a href="#">Jewellery Shoots</a></li>
+        <li><a href="#">Fashion Photography</a></li>
+        <li><a href="#">Real Estate Videos</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Our Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>MorVin Media</span>. All rights reserved. Surat, Gujarat, India.</p>
+    <p class="footer-copy" style="color:#222">Crafted with obsession.</p>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const trail = document.getElementById('cursor-trail');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+function animTrail(){
+  tx+=(mx-tx)*.12;ty+=(my-ty)*.12;
+  trail.style.left=tx+'px';trail.style.top=ty+'px';
+  requestAnimationFrame(animTrail);
+}
+animTrail();
+
+// LOADER
+window.addEventListener('load',()=>{
+  let pct=0;
+  const num=document.getElementById('loader-num');
+  const iv=setInterval(()=>{
+    pct+=Math.random()*15;
+    if(pct>=100){pct=100;clearInterval(iv);}
+    num.textContent=Math.round(pct)+'%';
+  },80);
+  setTimeout(()=>{
+    const l=document.getElementById('loader');
+    l.style.opacity='0';l.style.transition='opacity .8s';
+    setTimeout(()=>{l.style.display='none';},800);
+  },2000);
+});
+
+// NAV SCROLL
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// REVEAL ON SCROLL
+const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+revealEls.forEach(el=>revealObs.observe(el));
+
+// PROJECT CARD OVERLAY FIX
+document.querySelectorAll('.project-card').forEach(card=>{
+  card.addEventListener('mouseenter',()=>{
+    const info=card.querySelector('.project-info');
+    if(info) info.style.opacity='1';
+  });
+  card.addEventListener('mouseleave',()=>{
+    const info=card.querySelector('.project-info');
+    if(info) info.style.opacity='0';
+  });
+});
+
+// COUNTER
+const counters=document.querySelectorAll('.counter');
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const target=+el.dataset.target;
+      let cur=0;
+      const step=target/60;
+      const iv=setInterval(()=>{
+        cur+=step;
+        if(cur>=target){cur=target;clearInterval(iv);}
+        el.textContent=Math.round(cur).toLocaleString();
+      },16);
+      counterObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+counters.forEach(c=>counterObs.observe(c));
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const a=item.querySelector('.faq-a');
+    const inner=item.querySelector('.faq-a-inner');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.height='0';
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      a.style.height=inner.offsetHeight+'px';
+      q.setAttribute('aria-expanded','true');
+    }
+  });
+  q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});
+});
+
+// BEFORE/AFTER SLIDER
+const baHandle=document.getElementById('baHandle');
+const baAfter=document.getElementById('baAfter');
+const baWrap=document.querySelector('.ba-wrap');
+if(baHandle){
+  let dragging=false;
+  const move=x=>{
+    const rect=baWrap.getBoundingClientRect();
+    let pct=((x-rect.left)/rect.width)*100;
+    pct=Math.max(5,Math.min(95,pct));
+    baAfter.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
+    baHandle.style.left=pct+'%';
+    document.getElementById('baArrows').style.left=pct+'%';
+  };
+  baHandle.addEventListener('mousedown',e=>{dragging=true;e.preventDefault();});
+  baWrap.addEventListener('click',e=>move(e.clientX));
+  document.addEventListener('mousemove',e=>{if(dragging)move(e.clientX);});
+  document.addEventListener('mouseup',()=>dragging=false);
+  baHandle.addEventListener('touchstart',e=>{dragging=true;e.preventDefault();},{passive:false});
+  document.addEventListener('touchmove',e=>{if(dragging)move(e.touches[0].clientX);},{passive:true});
+  document.addEventListener('touchend',()=>dragging=false);
+}
+
+// CONTACT FORM
+document.getElementById('contact-submit').addEventListener('click',()=>{
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  if(!name||!email){alert('Please fill in your name and email.');return;}
+  document.getElementById('contact-submit').textContent='Sent! ✓';
+  document.getElementById('contact-submit').style.background='#1a3a1a';
+  document.getElementById('contact-submit').style.color='#4ade80';
+  document.getElementById('form-success').style.display='block';
+});
+
+// MAGNETIC BUTTONS (subtle)
+document.querySelectorAll('.btn-primary,.btn-outline,.nav-cta').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)*.2;
+    const y=(e.clientY-r.top-r.height/2)*.2;
+    btn.style.transform=`translate(${x}px,${y}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+
+// HAMBURGER
+const hamburger=document.getElementById('hamburger');
+hamburger.addEventListener('click',()=>{
+  const links=document.querySelector('.nav-links');
+  if(links.style.display==='flex'){
+    links.style.display='none';
+  } else {
+    links.style.cssText='display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0D0D0D;align-items:center;justify-content:center;gap:2rem;z-index:9998';
+    links.querySelectorAll('a').forEach(a=>a.style.fontSize='1.5rem');
+  }
+});
+
+// PARALLAX HERO GRID
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5)*20;
+  const y=(e.clientY/window.innerHeight-.5)*20;
+  document.querySelector('.hero-grid').style.transform=`translate(${x}px,${y}px)`;
+});
+
+// GSAP SCROLL ANIMATIONS (if loaded)
+if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero-h1',{
+    duration:1.4,
+    y:80,opacity:0,
+    ease:'power4.out',
+    delay:.3
+  });
+  gsap.from('.hero-sub',{
+    duration:1.2,
+    y:40,opacity:0,
+    ease:'power3.out',
+    delay:.6
+  });
+  gsap.from('.hero-ctas',{
+    duration:1,
+    y:30,opacity:0,
+    ease:'power3.out',
+    delay:.9
+  });
+}
+</script>
+</body>
+</html>
