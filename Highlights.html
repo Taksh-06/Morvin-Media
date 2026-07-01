@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showreel — MorVin Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/work.css">
+  <style>
+    .showreel-grid {
+      column-count: 2;
+      column-gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4vw 8rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, .05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      outline: none;
+    }
+
+    .page-header {
+      padding: 10rem 4vw 4rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .showreel-grid {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div id="loader-logo">Mor<span>Vin</span> Media</div>
+    <div id="loader-bar"></div>
+    <div id="loader-num">Loading...</div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Mor<span>Vin</span> Media</a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main style="background: #080808; min-height: 100vh;">
+    <div class="page-header">
+      <div class="section-eyebrow" style="justify-content:center">The Cinematic Experience</div>
+      <h1 class="section-title reveal" style="font-size:4rem; margin-top:1rem;">Our Highlights</h1>
+    </div>
+
+    <div class="showreel-grid">
+      <div class="video-wrapper reveal">
+        <video src="Portfolio/Highlight%20Ok.mp4" controls preload="metadata" controlslist="nodownload noplaybackrate"
+          disablepictureinpicture></video>
+      </div>
+      <div class="video-wrapper reveal">
+        <video src="Portfolio/Highlight%20Vishal.mp4" controls preload="metadata"
+          controlslist="nodownload noplaybackrate" disablepictureinpicture></video>
+      </div>
+      <div class="video-wrapper reveal">
+        <video src="Portfolio/Highlight.mp4" controls preload="metadata" controlslist="nodownload noplaybackrate"
+          disablepictureinpicture></video>
+      </div>
+      <div class="video-wrapper reveal">
+        <video src="Portfolio/Anmol%20Highlight.mp4" controls preload="metadata"
+          controlslist="nodownload noplaybackrate" disablepictureinpicture></video>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Mor<span>Vin</span> Media</div>
+        <p class="footer-tagline">Creative Content & Production Studio based in Surat, India. We build brands that
+          people remember.</p>
+        <p
+          style="font-size:.7rem;color:#C8A96A;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:1.5rem">
+          Create. Content. Grow.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>MorVin Media</span>. All rights reserved. Surat, Gujarat, India.</p>
+      <p class="footer-copy" style="color:#222">Crafted with obsession.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
