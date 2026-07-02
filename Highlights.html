@@ -15,8 +15,9 @@
   <link rel="stylesheet" href="css/work.css">
   <style>
     .showreel-grid {
-      column-count: 2;
-      column-gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 4vw 8rem;
@@ -29,13 +30,11 @@
       background: #111;
       border: 1px solid rgba(255, 255, 255, .05);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      break-inside: avoid;
-      margin-bottom: 2rem;
     }
 
-    .video-wrapper video {
+    .video-wrapper iframe {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       outline: none;
     }
@@ -47,7 +46,15 @@
 
     @media (max-width: 768px) {
       .showreel-grid {
-        column-count: 1;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-bottom: 4rem;
+      }
+      .page-header {
+        padding: 8rem 4vw 3rem;
+      }
+      .section-title {
+        font-size: 2.5rem !important;
       }
     }
   </style>
