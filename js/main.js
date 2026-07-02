@@ -125,15 +125,18 @@ if(baHandle){
 }
 
 // CONTACT FORM
-document.getElementById('contact-submit').addEventListener('click',()=>{
-  const name=document.getElementById('f-name').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  if(!name||!email){alert('Please fill in your name and email.');return;}
-  document.getElementById('contact-submit').textContent='Sent! ✓';
-  document.getElementById('contact-submit').style.background='#1a3a1a';
-  document.getElementById('contact-submit').style.color='#4ade80';
-  document.getElementById('form-success').style.display='block';
-});
+const contactSubmit = document.getElementById('contact-submit');
+if(contactSubmit){
+  contactSubmit.addEventListener('click',()=>{
+    const name=document.getElementById('f-name').value.trim();
+    const email=document.getElementById('f-email').value.trim();
+    if(!name||!email){alert('Please fill in your name and email.');return;}
+    contactSubmit.textContent='Sent! ✓';
+    contactSubmit.style.background='#1a3a1a';
+    contactSubmit.style.color='#4ade80';
+    document.getElementById('form-success').style.display='block';
+  });
+}
 
 // MAGNETIC BUTTONS (subtle)
 document.querySelectorAll('.btn-primary,.btn-outline,.nav-cta').forEach(btn=>{
@@ -148,21 +151,26 @@ document.querySelectorAll('.btn-primary,.btn-outline,.nav-cta').forEach(btn=>{
 
 // HAMBURGER
 const hamburger=document.getElementById('hamburger');
-hamburger.addEventListener('click',()=>{
-  const links=document.querySelector('.nav-links');
-  if(links.style.display==='flex'){
-    links.style.display='none';
-  } else {
-    links.style.cssText='display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0D0D0D;align-items:center;justify-content:center;gap:2rem;z-index:9998';
-    links.querySelectorAll('a').forEach(a=>a.style.fontSize='1.5rem');
-  }
-});
+if(hamburger){
+  hamburger.addEventListener('click',()=>{
+    const links=document.querySelector('.nav-links');
+    if(links.style.display==='flex'){
+      links.style.cssText=''; // Clear inline styles so it falls back to desktop CSS
+    } else {
+      links.style.cssText='display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0D0D0D;align-items:center;justify-content:center;gap:2rem;z-index:9998';
+      links.querySelectorAll('a').forEach(a=>a.style.fontSize='1.5rem');
+    }
+  });
+}
 
 // PARALLAX HERO GRID
 document.addEventListener('mousemove',e=>{
-  const x=(e.clientX/window.innerWidth-.5)*20;
-  const y=(e.clientY/window.innerHeight-.5)*20;
-  document.querySelector('.hero-grid').style.transform=`translate(${x}px,${y}px)`;
+  const hg = document.querySelector('.hero-grid');
+  if(hg){
+    const x=(e.clientX/window.innerWidth-.5)*20;
+    const y=(e.clientY/window.innerHeight-.5)*20;
+    hg.style.transform=`translate(${x}px,${y}px)`;
+  }
 });
 
 // GSAP SCROLL ANIMATIONS (if loaded)

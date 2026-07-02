@@ -311,7 +311,7 @@ transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 
 /* MOBILE HAMBURGER */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;position:relative;z-index:9999;}
 .hamburger span{display:block;width:22px;height:1.5px;background:#fff;transition:all .3s}
 
 @media(max-width:768px){
