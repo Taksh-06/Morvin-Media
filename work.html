@@ -115,16 +115,15 @@
         <div class="reveal"
           style="width:100%; max-width:400px; margin:0 auto; aspect-ratio:9/16; background:#111; border-radius:20px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,.05); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
 
-          <!-- Crossfading Videos -->
           <div style="position:absolute; inset:0;" class="showreel-vids">
-            <video src="Portfolio/Reel%20(1).mp4" autoplay loop muted playsinline
-              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1s ease-in-out; opacity:1;"></video>
-            <video src="Portfolio/Ayushi%20%26%20Bhavesh%20Haldi%20Reel%20ok.mp4" autoplay loop muted playsinline
-              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1s ease-in-out; opacity:0;"></video>
-            <video src="Portfolio/Darshan%20%26%20Gopi%20ReeL.mp4" autoplay loop muted playsinline
-              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1s ease-in-out; opacity:0;"></video>
-            <video src="Portfolio/DJ%20Reel.mp4" autoplay loop muted playsinline
-              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1s ease-in-out; opacity:0;"></video>
+            <iframe src="https://www.youtube.com/embed/jQLRi_0hL7Y?autoplay=1&mute=1&loop=1&playlist=jQLRi_0hL7Y&controls=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"
+              style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; transition:opacity 1s ease-in-out; opacity:1;"></iframe>
+            <iframe src="https://www.youtube.com/embed/g_RLcaLc4vE?autoplay=1&mute=1&loop=1&playlist=g_RLcaLc4vE&controls=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"
+              style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; transition:opacity 1s ease-in-out; opacity:0;"></iframe>
+            <iframe src="https://www.youtube.com/embed/XUh-0BYI6eo?autoplay=1&mute=1&loop=1&playlist=XUh-0BYI6eo&controls=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"
+              style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; transition:opacity 1s ease-in-out; opacity:0;"></iframe>
+            <iframe src="https://www.youtube.com/embed/KtPmk0zziCc?autoplay=1&mute=1&loop=1&playlist=KtPmk0zziCc&controls=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"
+              style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; transition:opacity 1s ease-in-out; opacity:0;"></iframe>
           </div>
 
           <div
@@ -147,7 +146,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         const blocks = document.querySelectorAll('.showreel-vids');
         blocks.forEach(block => {
-          const vids = block.querySelectorAll('video');
+          const vids = block.querySelectorAll('video, iframe');
           if (vids.length > 0) {
             let currentIdx = 0;
             setInterval(() => {
