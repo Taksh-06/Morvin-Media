@@ -14,18 +14,25 @@ function animTrail(){
 animTrail();
 
 // LOADER
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 window.addEventListener('load',()=>{
   let pct=0;
   const num=document.getElementById('loader-num');
   const iv=setInterval(()=>{
     pct+=Math.random()*15;
     if(pct>=100){pct=100;clearInterval(iv);}
-    num.textContent=Math.round(pct)+'%';
+    if(num) num.textContent=Math.round(pct)+'%';
   },80);
   setTimeout(()=>{
     const l=document.getElementById('loader');
-    l.style.opacity='0';l.style.transition='opacity .8s';
-    setTimeout(()=>{l.style.display='none';},800);
+    if(l){
+      l.style.opacity='0';l.style.transition='opacity .8s';
+      setTimeout(()=>{l.style.display='none';},800);
+    }
   },2000);
 });
 
@@ -156,10 +163,23 @@ if(hamburger){
     const links=document.querySelector('.nav-links');
     if(links.style.display==='flex'){
       links.style.cssText=''; // Clear inline styles so it falls back to desktop CSS
+      document.body.style.overflow='';
     } else {
       links.style.cssText='display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#0D0D0D;align-items:center;justify-content:center;gap:2rem;z-index:9998';
       links.querySelectorAll('a').forEach(a=>a.style.fontSize='1.5rem');
+      document.body.style.overflow='hidden';
     }
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      if (links.style.display === 'flex') {
+        links.style.cssText = '';
+        document.body.style.overflow = '';
+      }
+    });
   });
 }
 
